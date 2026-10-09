@@ -1,0 +1,8 @@
+services:
+  web:
+    image: apache2_alejandrof:v1
+    container_name: docker_apache
+    ports:
+      - "8082:80"
+    volumes:
+      - ./html_local_AlejandroF:/var/www/html
