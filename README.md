@@ -11,7 +11,8 @@ Se descargó la imagen oficial de Debian utilizando el comando `docker pull`.
 docker pull debian:latest
 ```
 
-![Paso 1: Descarga de la imagen de debian](paso1.png)
+<img width="493" height="145" alt="paso1" src="https://github.com/user-attachments/assets/28f74c1e-beb2-4cbd-9e88-e1622e598b23" />
+
 
 ---
 
@@ -22,7 +23,8 @@ Se creó e inició el contenedor con el nombre `apache_AlejandroF`, mapeando el 
 docker run -d -it --name apache_AlejandroF -p 8080:80 debian:latest
 ```
 
-![Paso 2: Arrancar contenedor apache_AlejandroF]<img width="493" height="145" alt="paso1" src="https://github.com/user-attachments/assets/5d505119-7ae9-41f3-bab8-aade26879221" />
+<img width="960" height="848" alt="paso2" src="https://github.com/user-attachments/assets/67e3a43e-7f36-4893-a992-52ff08cfd677" />
+
 
 ---
 
@@ -33,7 +35,8 @@ Se accedió a la terminal del contenedor en ejecución mediante `docker exec`.
 docker exec -it apache_AlejandroF bash
 ```
 
-![Paso 3: Ejecución de bash en el contenedor](paso3.png)
+<img width="531" height="163" alt="paso3" src="https://github.com/user-attachments/assets/f3a019c2-2f7d-4777-9c58-8fec6e2c0838" />
+
 
 ---
 
@@ -44,7 +47,8 @@ Una vez dentro del contenedor, se actualizaron los repositorios de paquetes y se
 apt update && apt install -y apache2
 ```
 
-![Paso 4: Instalación del paquete apache2](paso4.png)
+<img width="531" height="163" alt="paso3" src="https://github.com/user-attachments/assets/b1cca7e0-af9c-45b8-b8ae-ff76f812ed38" />
+
 
 ---
 
@@ -55,14 +59,16 @@ Se inició el servicio del servidor web Apache internamente.
 service apache2 start
 ```
 
-![Paso 5: Inicio del servicio apache2](paso5.png)
+<img width="593" height="82" alt="paso4" src="https://github.com/user-attachments/assets/8fea4a4d-0cb8-4c79-8e78-1b19cfe4e0b1" />
+
 
 ---
 
 ## 6. Comprobar desde el navegador que el servidor web responde
 Se accedió a `http://localhost:8080` en el navegador web para verificar la pantalla de bienvenida por defecto de Debian Apache2.
 
-![Paso 6: Comprobación de página por defecto en localhost:8080](paso6.png)
+<img width="1919" height="998" alt="paso5" src="https://github.com/user-attachments/assets/da6c0384-0040-4ca3-86f0-5e92db4e2453" />
+
 
 ---
 
@@ -73,14 +79,15 @@ Se generó el archivo `alejandrof.html` en el directorio `/var/www/html/` dentro
 echo "<h1>Pagina de Alejandro Florea</h1>" > /var/www/html/alejandrof.html
 ```
 
-![Paso 7: Creación del archivo html personalizado](paso7.png)
+<img width="538" height="35" alt="paso6" src="https://github.com/user-attachments/assets/ee859cbd-21ce-4896-863f-014c30aef8a9" />
+
 
 ---
 
 ## 8. Acceder a la página personalizada desde el navegador
 Se verificó el acceso a la nueva página ingresando a la URL `http://localhost:8080/alejandrof.html`.
 
-![Paso 8: Visualización de alejandrof.html en el navegador](paso8.png)
+<img width="566" height="220" alt="paso7" src="https://github.com/user-attachments/assets/c1186cf6-a9d2-4e1a-a622-2fbac1e052d1" />
 
 ---
 
@@ -92,8 +99,9 @@ apt install -y elinks
 elinks http://localhost/alejandrof.html
 ```
 
-![Paso 9: Instalación de elinks](paso9.png)
-![Paso 10: Visualización del sitio en elinks](paso10.png)
+<img width="373" height="266" alt="paso8" src="https://github.com/user-attachments/assets/3134a612-c5c6-45c0-a600-19a3cf68c412" />
+
+<img width="601" height="286" alt="paso9" src="https://github.com/user-attachments/assets/38a1824c-7297-47f6-a4be-befef1c35254" />
 
 ---
 
@@ -112,7 +120,8 @@ EXPOSE 80
 CMD ["apache2ctl", "-D", "FOREGROUND"]
 ```
 
-![Paso 11: Contenido del Dockerfile](paso11.png)
+<img width="671" height="238" alt="paso10" src="https://github.com/user-attachments/assets/97ed2a7b-cc82-49c5-9e07-54c8e969d16b" />
+
 
 ---
 
@@ -122,8 +131,8 @@ Se construyó la imagen utilizando el nombre en minúsculas `apache2_alejandrof:
 ```bash
 docker build -t apache2_alejandrof:v1 .
 ```
+<img width="863" height="463" alt="paso11" src="https://github.com/user-attachments/assets/c7abb18c-ad88-44e5-aa09-e5f2b2743ffa" />
 
-![Paso 12: Construcción exitosa de la imagen con docker build](paso12.png)
 
 ---
 
@@ -134,7 +143,8 @@ Se desplegó el contenedor `apache_auto` mapeando el puerto `8081` del host.
 docker run -d --name apache_auto -p 8081:80 apache2_alejandrof:v1
 ```
 
-![Paso 13: Despliegue del contenedor apache_auto](paso13.png)
+<img width="855" height="59" alt="paso12" src="https://github.com/user-attachments/assets/58dcdc8c-332b-4367-b514-f275dd3ddc7d" />
+
 
 ---
 
@@ -145,9 +155,10 @@ Se creó un archivo local `local.html` y se copió dentro de la ruta `/var/www/h
 echo "<h1>Copia con cp en docker en ejecucion de Alejandro Florea</h1>" > local.html
 docker cp local.html apache_auto:/var/www/html/
 ```
+<img width="856" height="90" alt="paso13" src="https://github.com/user-attachments/assets/7fae8b6a-87a5-4f89-86b5-28daf51219e5" />
 
-![Paso 14: Comando docker cp para transferir archivo](paso14.png)
-![Paso 15: Comprobación en navegador de local.html](paso15.png)
+<img width="871" height="224" alt="paso14" src="https://github.com/user-attachments/assets/5adbae75-25e7-4874-b4c1-626ad1b061e7" />
+
 
 ---
 
@@ -171,8 +182,9 @@ services:
       - ./html_local_AlejandroF:/var/www/html
 ```
 
-![Paso 16: Creación del directorio y archivo local para volumen](paso16.png)
-![Paso 17: Configuración de docker-compose.yml](paso17.png)
+<img width="854" height="200" alt="paso15" src="https://github.com/user-attachments/assets/52afedd0-a349-40ba-bcf4-6b1d1138a738" />
+
+<img width="367" height="182" alt="paso16" src="https://github.com/user-attachments/assets/c0733c85-5358-4002-b88b-8d5df780dc20" />
 
 ---
 
@@ -182,5 +194,7 @@ Se levantó el servicio definido en Docker Compose y se verificó la respuesta d
 ```bash
 docker compose up -d
 ```
+<img width="854" height="452" alt="paso17" src="https://github.com/user-attachments/assets/1e4d3d3b-a7ab-4a37-87e3-303f941efac9" />
 
-![Paso 18: Despliegue con docker compose up y comprobación final en puerto 8082](paso18.png)
+<img width="1283" height="206" alt="paso18" src="https://github.com/user-attachments/assets/ba397ca7-82ff-4a3f-a2fb-fbb4cd559808" />
+
