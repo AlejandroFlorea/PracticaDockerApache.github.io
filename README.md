@@ -22,7 +22,8 @@ Se creó e inició el contenedor con el nombre `apache_AlejandroF`, mapeando el 
 docker run -d -it --name apache_AlejandroF -p 8080:80 debian:latest
 ```
 
-![Paso 2: Arrancar contenedor apache_AlejandroF](paso2.png)
+![Paso 2: Arrancar contenedor apache_AlejandroF](<img width="493" height="145" alt="paso1" src="https://github.com/user-attachments/assets/5d505119-7ae9-41f3-bab8-aade26879221" />
+)
 
 ---
 
